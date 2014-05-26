@@ -1,5 +1,5 @@
 //
-// Copyright 2011-2014 NimbusKit
+// Copyright 2012-2013 Jeff Verkoeyen
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,23 +15,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-  #import <UIKit/UIKit.h>
-  #define UINSFont UIFont
-#else
-  #import <AppKit/AppKit.h>
-  #define UINSFont NSFont
-#endif
+#import <UIKit/UIKit.h>
 
 typedef enum {
-  NSAttributedStringMarkdownParserHeader1,
-  NSAttributedStringMarkdownParserHeader2,
-  NSAttributedStringMarkdownParserHeader3,
-  NSAttributedStringMarkdownParserHeader4,
-  NSAttributedStringMarkdownParserHeader5,
-  NSAttributedStringMarkdownParserHeader6,
-
+    NSAttributedStringMarkdownParserHeader1,
+    NSAttributedStringMarkdownParserHeader2,
+    NSAttributedStringMarkdownParserHeader3,
+    NSAttributedStringMarkdownParserHeader4,
+    NSAttributedStringMarkdownParserHeader5,
+    NSAttributedStringMarkdownParserHeader6,
+    
 } NSAttributedStringMarkdownParserHeader;
 
 @protocol NSAttributedStringMarkdownStylesheet;
@@ -42,24 +35,18 @@ typedef enum {
 @property (nonatomic, readonly, copy) NSString *tooltip;
 @end
 
-/**
- * The NSAttributedStringMarkdownParser class parses a given markdown string into an
- * NSAttributedString.
- *
- * @ingroup NimbusMarkdown
- */
 @interface NSAttributedStringMarkdownParser : NSObject <NSCopying>
 
 - (NSAttributedString *)attributedStringFromMarkdownString:(NSString *)string;
 - (NSArray *)links; // Array of NSAttributedStringMarkdownLink
 
-@property (nonatomic, strong) UINSFont* paragraphFont; // Default: systemFontOfSize:12
+@property (nonatomic, strong) UIFont* paragraphFont; // Default: systemFontOfSize:12
 @property (nonatomic, copy) NSString* boldFontName; // Default: boldSystemFont
 @property (nonatomic, copy) NSString* italicFontName; // Default: Helvetica-Oblique
 @property (nonatomic, copy) NSString* boldItalicFontName; // Default: Helvetica-BoldOblique
-@property (nonatomic, copy) NSString* codeFontName; // Default: Courier
+@property (nonatomic, strong) UIColor* foregroundColor; // Default: blackColor
 
-- (void)setFont:(UINSFont *)font forHeader:(NSAttributedStringMarkdownParserHeader)header;
-- (UINSFont *)fontForHeader:(NSAttributedStringMarkdownParserHeader)header;
+- (void)setFont:(UIFont *)font forHeader:(NSAttributedStringMarkdownParserHeader)header;
+- (UIFont *)fontForHeader:(NSAttributedStringMarkdownParserHeader)header;
 
 @end

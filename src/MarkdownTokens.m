@@ -1,5 +1,5 @@
 //
-// Copyright 2011-2014 NimbusKit
+// Copyright 2012 Jeff Verkoeyen
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,17 +15,16 @@
 //
 
 const char* markdownnames[] = {
-  "EM",
-  "STRONG",
-  "STRONGEM",
-  "STRIKETHROUGH",
-  "HEADER",
-  "MULTILINEHEADER",
-  "URL",
-  "HREF",
-  "PARAGRAPH",
-  "NEWLINE",
-  "BULLETSTART",
-  "MARKDOWNCODESPAN",
-  "UNKNOWN"
+    "EM",
+    "STRONG",
+    "STRONGEM",
+    "STRIKETHROUGH",
+    "HEADER",
+    "MULTILINEHEADER",
+    "URL",
+    "HREF",
+    "PARAGRAPH",
+    "NEWLINE",
+    "BULLETSTART",
+    "UNKNOWN"
 };
